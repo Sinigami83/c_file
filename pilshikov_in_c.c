@@ -59,7 +59,40 @@ int p5_1(int a)
 		return a = a * p5_1(a-1);		
 }
 
+int p5_2()
+{
+	int i = 1;
+	double s = 0;
+	do {
+		s = s + 1 / i;
+		--i;
+	} while (i >= 1);
+	printf("%.3lf\n", s);
+}
 
+void p5_2g()
+{
+	int i;
+	for (i = 1; i <= 15; i++)
+		printf("%d\t", i);
+	printf("\n");
+}
+
+int p5_10() 
+{
+	int q, w, n, i;
+	scanf("%d", &n);
+
+	scanf("%d", &q);
+	w = q;
+
+	for (i = 1; i < n; i++) {
+		scanf("%d", &q);
+		if (q < w) 
+			w = q;
+	}
+	return w;
+}
 
 int main()
 {
@@ -69,5 +102,8 @@ int main()
 	printf("%lf\n", p4_1a(1));
 	printf("%d\n", p4_1g(2, 3, 1));
 	printf("%d\n", p5_1(6));
+	p5_2();
+	p5_2g();
+	printf("%d\n", p5_10());
 	return 0;
 }
