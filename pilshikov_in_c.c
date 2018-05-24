@@ -29,12 +29,37 @@ void p2_1v()
 
 double p4_1a(int x)
 {
-	//double y;
 	if (x > 0 || x < 2) 
 		return cos(x) * cos(x);
 	else
 		return 1 - sin(x*x);
 }
+
+int p4_1g(int a, int b, int c)
+{
+	if (a > b) 
+	{
+		if (a > c)
+			return a;
+		else
+			return c;
+	}
+	else
+		if (b > c)
+			return b;
+		else
+			return c;
+}
+
+int p5_1(int a)
+{
+	if (a == 0)
+		return a = 1;
+	else
+		return a = a * p5_1(a-1);		
+}
+
+
 
 int main()
 {
@@ -42,5 +67,7 @@ int main()
 	p2_1b();
 	p2_1v();
 	printf("%lf\n", p4_1a(1));
+	printf("%d\n", p4_1g(2, 3, 1));
+	printf("%d\n", p5_1(6));
 	return 0;
 }
