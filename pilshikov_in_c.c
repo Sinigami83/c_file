@@ -59,7 +59,7 @@ int p5_1(int a)
 		return a = a * p5_1(a-1);		
 }
 
-int p5_2()
+void p5_2()
 {
 	int i = 1;
 	double s = 0;
@@ -94,16 +94,66 @@ int p5_10()
 	return w;
 }
 
+double p5_15()
+{
+	int x, y, i;
+	double sum_cos;
+	y = 1;
+	sum_cos = 0;
+	scanf("%d", &x);
+	for (i = 1; i <= 30; i++)
+		sum_cos += cos(y*x);
+	return sum_cos;
+}
+
+void p6_10()
+{
+	int i, j;
+	/*printf("%c\n", '7'- 1);
+
+	printf("%d\n", '0' + 1 == '2' - 1);
+
+	printf("%d\n", 'S' + 'U' + 'M');*/
+
+	/*for (i = 1; i < 10; i++) {
+		for (j = 1; j < 10; j++) {
+			if (i == j)
+				printf("%d", i);
+			else
+				printf("%d", 0);
+		}
+		printf("\n");
+	}
+	printf("\n");*/
+
+	for (j = 9; j > 0; j--)
+			printf("%d", 9);
+	printf("\n");
+	
+	/*for (i = 8; i > 0; i--) {
+		for (j = 9; j > 0; j--)
+			if ()
+
+				printf("%d", i);
+
+		printf("\n");
+	}*/
+
+}
+
+
 int main()
 {
-	p2_1a();
+	/*p2_1a();
 	p2_1b();
 	p2_1v();
 	printf("%lf\n", p4_1a(1));
 	printf("%d\n", p4_1g(2, 3, 1));
 	printf("%d\n", p5_1(6));
 	p5_2();
-	p5_2g();
-	printf("%d\n", p5_10());
+	p5_2g();*/
+	/*printf("%d\n", p5_10());*/
+	/*printf("%lf\n", p5_15());*/
+	p6_10();
 	return 0;
 }
