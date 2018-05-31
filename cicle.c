@@ -89,6 +89,24 @@ void p5_30()
   printf("%d\n", k);
 }
 
+void p5_38()
+{
+  int i, j, a, max;
+  scanf("%d", &a);
+  max = a;
+  for (j = 1, i = 2; i <= 5; i++) {
+    scanf("%d", &a);
+    if (a == max) 
+      j++;
+    else
+    if (a > max) {
+      max = a;
+      j = 1;
+    }
+  }
+  printf("%d\n", j);
+}
+
 int main()
 {
   /*p5_1();
@@ -98,5 +116,6 @@ int main()
   p5_20();
   p5_25();
   p5_30();*/
+  p5_38();
   return 0;
 }
