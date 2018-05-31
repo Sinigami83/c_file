@@ -57,12 +57,46 @@ void p5_15_a()
   printf("%.5lf\n", y);
 }
 
+void p5_20()
+{
+  float x;
+  for (x = 0; x < 1.1; x += 0.1) {
+    printf("%0.5f %0.5f %0.5f\n", x, sin(x),cos(x));
+  }
+}
+
+void p5_25()
+{
+  int x, i, t, n;
+  scanf("%d", &x);
+  for (i = 0, n = x, t = 0; i <= 30; i++, n *= x)
+    if (sin(n) < 0) {
+      t = 1;
+      goto exit_1;
+    }
+  exit_1: printf("%d\n", t);
+}
+
+void p5_30()
+{
+  int a1, a10, a100, k;
+  k = 0;
+  for (a100 = 0; a100 <= 9; a100 ++)
+    for (a10 = 0; a10 <= 9; a10 ++)
+      for (a1 = 1; a1 <= 9; a1++)
+        if ((a1 + a10 + a100) <= 27)
+            k++;
+  printf("%d\n", k);
+}
+
 int main()
 {
   /*p5_1();
   p5_6();
   p5_10();
-  p5_15_a();*/
-  
+  p5_15_a();
+  p5_20();
+  p5_25();
+  p5_30();*/
   return 0;
 }
