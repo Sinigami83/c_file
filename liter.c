@@ -38,7 +38,7 @@ void p6_10()
         printf("%d", i);
       else
         printf("%d", 0);
-    printf("\n");  
+    printf("\n");
   }
 }
 
@@ -66,24 +66,23 @@ void p6_20()
 
 void p6_28()
 {
-  char d;
-  scanf("%c", &d);
-  while (d != '.') {
+    char d;
     scanf("%c", &d);
-    
-    scanf("%c", &d);
-  }
+    while (d != '.') {
+        scanf("%c", &d);
 
+        scanf("%c", &d);
+    }
 }
 
 int main()
 {
-  /*p6_3_a();
-  p6_3_b();
-  p6_3_v();
-  p6_6();
-  p6_10();
-  p6_15();*/
-  p6_20();
-  return 0;
+    /*p6_3_a();
+    p6_3_b();
+    p6_3_v();
+    p6_6();
+    p6_10();
+    p6_15();*/
+    p6_20();
+    return 0;
 }
