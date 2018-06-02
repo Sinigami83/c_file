@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <math.h>
+#include <stdlib.h>
 
 void p5_1()
 {
@@ -107,6 +108,36 @@ void p5_38()
   printf("%d\n", j);
 }
 
+void p5_45()
+{
+  int a, sign, i;
+  i = 0;
+  sign = a / abs(a);
+  scanf("%d", &a);
+  while (a != 0) {
+    a = a / abs(a);
+    if (sign != a) {
+      ++i;
+      sign = a;
+    }
+    scanf("%d", &a);
+  }
+  printf("%d\n", i);
+}
+
+void p5_55()
+{
+  int a, b;
+  b = 0;
+  scanf("%d", &a);
+  while (a > 0) {
+    b = b * 10 + a % 10;
+    a /= 10;
+  }
+  printf("%d\n", b);
+}
+
+
 int main()
 {
   /*p5_1();
@@ -115,7 +146,11 @@ int main()
   p5_15_a();
   p5_20();
   p5_25();
-  p5_30();*/
+  p5_30();
   p5_38();
+  p5_45();
+  p5_55();*/
+  char str[] = "Hello\0";
+  printf("%s\n", str);
   return 0;
 }
