@@ -2,16 +2,22 @@
 
 int main()
 {
-    int c, n;
-    n = 0;
+    int c, pr;
+    pr = 1;
     while ((c = getchar()) != EOF) {
-        if (c == '\n') {
-            printf("%d\n", n);
-            n = 0;
-        } else { 
-            n++;
+        switch(c) {
+        case '\n':
+            putchar('\n');
+            pr = 1;
+            break;
+        case ' ':
+            pr = 0;
+            break;
+        default:
+            if (pr)
+                putchar(c);
         }
-
     }
+
     return 0;
 }
