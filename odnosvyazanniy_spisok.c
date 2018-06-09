@@ -8,9 +8,10 @@ struct item *int_array_to_list(int *arr, int len)
         tmp->next = NULL;
         first = tmp;
         }
-    }
     return first;
-};
+}
+    
+
 
 int main()
 {
@@ -18,5 +19,13 @@ int main()
         int data;
         struct  item *next;
     };
+    
+    typedef struct tag_item {
+        int data;
+        int tag_item *next;
+    } item;
+
+    
     return 0;
+
 }
