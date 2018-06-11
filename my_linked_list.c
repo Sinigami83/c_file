@@ -3,19 +3,15 @@
 
 struct list {
     int data;
-    struct list *next;    
+    struct list *next;
 };
 
-
-/* enter linked_list */
-struct list *enter_list()
+struct list *enter_linked_list()
 {
-    struct list *first = NULL;
-    struct list *tmp;
-
+    struct list *first = NULL, *tmp;
     int n;
     
-    for (scanf("%d", &n); n >= 0; scanf("%d", &n)) {
+    for (scanf("%d", &n); n; scanf("%d", &n)) {
         tmp = malloc(sizeof(struct list));
         tmp->data = n;
         tmp->next = first;
@@ -24,17 +20,16 @@ struct list *enter_list()
     return first;
 }
 
-/* print linked_list */
-void print_list(struct list *lst)
+void print_linked_list(const struct list *lst)
 {
     while (lst) {
         printf("%d\n", lst->data);
         lst = lst->next;
     }
+
 }
 
-/* delit linked list*/
-void delit_list(struct list *lst)
+void delit_linked_list(struct list *lst)
 {
     while (lst) {
         struct list *tmp = lst;
@@ -45,12 +40,9 @@ void delit_list(struct list *lst)
 
 int main()
 {
-    struct list *our_list;
-    //struct list *tmp;
-
-    our_list = enter_list();   
-    print_list(our_list);
-    delit_list(our_list);   
-    
+    struct list *str_list;
+    str_list = enter_linked_list();
+    print_linked_list(str_list);
+    delit_linked_list(str_list);
     return 0;
 }
