@@ -191,16 +191,6 @@ void p8_29()
     }
 }*/
 
-/*void p8_30()
-{
-    const int n = 12;
-    enum month = {  yanvar, fevral, mart, 
-                    aprel, may, iyun, 
-                    iyul, avgust, sentyabr, 
-                    oktyabr, noyabr, dekabr};
-    enum month KD[12]; 
-}*/
-
 
 
 int main()
@@ -216,6 +206,14 @@ int main()
     p8_18();
     p8_19();
     p8_29();*/
-
+    
+    const int n = 12;
+    enum month {    yanvar, fevral, mart, 
+                    aprel, may, iyun, 
+                    iyul, avgust, sentyabr, 
+                    oktyabr, noyabr, dekabr};
+    enum month KD[n];
+    KD[0] = yanvar;
+    
     return 0;
 }

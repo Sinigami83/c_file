@@ -1,7 +1,44 @@
 #include <stdio.h>
+#include <errno.h>
+void exemple();
 
-int main(int argc, char **argv)
+int main()
 {
+    int n;
+    FILE *seria;
+    FILE *num;
+    seria = fopen("number.txt", "r");
+    if (!seria) {
+        perror("number.txt");
+        return 1;
+    }
+    while (fscanf(seria, "%d", &n) == 1) {;
+        printf("%d\n", n);
+    }
+    fclose(seria);
+    
+    num = fopen("qwe.txt", "w");
+    if (!num) {
+        perror("qwe.txt");
+        return 1;
+    }
+    fputs("Hello world", num);
+    fclose(num);
+    return 0;
+}
+
+
+/*void exemple()
+{
+    FILE *first_file;
+    first_file = fopen("text.txt", "a+");
+    if (!first_file) {
+        perror("text.txt");
+        return 2;
+    }    
+    fclose(first_file);
+    
+
     FILE *from, *to;
     int c, lnum;
     lnum = 1;
@@ -26,5 +63,4 @@ int main(int argc, char **argv)
             lnum++;
         }
     }
-    return 0;
-}
+}*/
