@@ -1,17 +1,17 @@
 #include <curses.h>
 #include <unistd.h>
 
-enum { delay_duration = 100 };
-enum { key_escape = 27 };
+#define DELAY_DURATION 100
+#define KEY_ESCAPE 27
 
-struct star {
+typedef struct  star {
     int cur_x;  /* текущее положение по горизонтали */
     int cur_y;  /* текущее положение по вертикали */
     int max_x;  /* максимальный предел терминала по горизонтали */
     int max_y;  /* максимальный предел терминала по вертикали */
-};
+} TypeStar;
 
-void initial_state(struct star *s, int x, int y) /* начальное состояние */
+void initial_state(TypeStar *s, int x, int y) /* начальное состояние */
 {
     /*int walls[s->max_x][s->max_y];
     int i, j;
@@ -37,21 +37,21 @@ void initial_state(struct star *s, int x, int y) /* начальное сост�
 
 }
 
-void clean_line(struct star *s)
+void clean_line(TypeStar *s)
 {
     move(s->cur_y, s->cur_x);
     addch(' ');
     refresh();
 }
 
-void paint_move_star(struct star *s)
+void paint_move_star(TypeStar *s)
 {
     move(s->cur_y, s->cur_x);
     addch('*');
     refresh();
 }
 
-void max_facet(struct star *s)
+void max_facet(TypeStar *s)
 {
     if (s->cur_x >= s->max_x) {
         s->cur_x = s->max_x - 1;
@@ -71,7 +71,7 @@ void max_facet(struct star *s)
 
 }
 
-void move_star(struct star *s, int x, int y)
+void move_star(TypeStar *s, int x, int y)
 {
     clean_line(s);
     s->cur_x += x; 
@@ -83,9 +83,9 @@ void move_star(struct star *s, int x, int y)
 int main()
 {
     int ord_x, ord_y, key;
-    struct star s;
+    TypeStar s;
 
-    timeout(delay_duration); /* эта функция нам понадобится, 
+    timeout(DELAY_DURATION); /* эта функция нам понадобится, 
     когда будет делать функцию автоматической езды без ошибания наших действий */
     
     initscr(); /* вызвали библиотеку*/ 
@@ -99,7 +99,7 @@ int main()
     s.max_y = ord_y;
     initial_state(&s, ord_x, ord_y);
 
-    while((key = getch())!= key_escape) {
+    while((key = getch())!= KEY_ESCAPE) {
         switch(key) {
             case KEY_UP:
                 move_star(&s, 0, -1);
