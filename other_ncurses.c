@@ -4,28 +4,37 @@
 #define DELAY_DURATION 100
 #define KEY_ESCAPE 27
 
-typedef struct  star {
+typedef struct star{
     int cur_x;  /* текущее положение по горизонтали */
     int cur_y;  /* текущее положение по вертикали */
     int max_x;  /* максимальный предел терминала по горизонтали */
     int max_y;  /* максимальный предел терминала по вертикали */
 } TypeStar;
-
+ 
 void initial_state(TypeStar *s, int x, int y) /* начальное состояние */
 {
-    /*int walls[s->max_x][s->max_y];
+    int walls[s->max_x][s->max_y];
     int i, j;
-    for (i = 0; i <= s->max_x ;++i)
-        for (j = 0; j <= s->max_y ;++j) {
-            walls[i][j] = '2';
-        }
 
-    for (i = 0; i <= s->max_x ;++i)
-        for (j = 0; j <= s->max_y ;++j) {
-            move(j, i);
-            addch(walls[i][j]);
+    for (i = 0; i <= s->max_x; ++i) {
+        for (j = 0; j <= s->max_y; ++j) {
+            walls[i][j] = ' ';
+        }
+    }
+
+    for (i = 0; i <= s->max_x; ++i) {
+        for (j = 0; j <= s->max_y; ++j)
+            walls[i][j] = 'x';
+    }
+
+
+    for (i = 0; i <= s->max_y; ++i) {
+        for (j = 0; j <= s->max_x; ++j) {
+            move(i, j);
+            addch(walls[j][i]);
             refresh();
-        }*/
+        }
+    }
 
     s->cur_x = x/2; 
     s->cur_y = y-1;
@@ -33,8 +42,6 @@ void initial_state(TypeStar *s, int x, int y) /* начальное состоя
     move(s->cur_y, s->cur_x);
     addch('*');
     refresh();
-
-
 }
 
 void clean_line(TypeStar *s)
@@ -68,7 +75,6 @@ void max_facet(TypeStar *s)
             s->cur_y = 0;
         }
     }
-
 }
 
 void move_star(TypeStar *s, int x, int y)
